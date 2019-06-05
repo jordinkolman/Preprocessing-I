@@ -170,22 +170,10 @@ body .container header nav {
   display: flex;
   justify-content: flex-end;
 }
-@media (max-width: 500px) {
-  body .container header nav {
-    display: flex;
-    flex-flow: column;
-  }
-}
 body .container header nav a {
   text-decoration: none;
   padding: 15px;
   color: black;
-}
-@media (max-width: 500px) {
-  body .container header nav a {
-    width: 100%;
-    border: 1px solid lightgray;
-  }
 }
 body .container .personal-info {
   display: flex;
@@ -197,11 +185,6 @@ body .container .personal-info {
 body .container .personal-info .profile-picture {
   width: 37.5%;
   margin: 10px;
-}
-@media (max-width: 500px) {
-  body .container .personal-info .profile-picture {
-    display: none;
-  }
 }
 body .container .personal-info .name {
   font-size: 3.5rem;
