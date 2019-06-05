@@ -3,60 +3,320 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+/* Variables */
+@font: 62.5%;
+@background-light: #f1f1f1;
+@background-medium: #e8ecef;
+@background-dark: #818181;
+@border: 1px solid lightgray;
+@border-bottom: 1px solid lightgray;
+@section-margin: 65px;
+@text-margin: 10px;
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+/* Mixins */
+.section-headers {
+  margin: @text-margin;
+  padding: 10px;
+  font-size: 2rem;
+}
+
+.table-oddline {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.table-evenline {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  background-color: lightgray;
+}
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 body {
-	background-color: #EFEFEF;
-}
+  background-color: #efefef;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  width: 1000px;
+  margin: @section-margin;
+  .container {
+    font: @font;
+    display: flex;
+    flex-flow: column nowrap;
+    align-content: center;
+    header {
+      nav {
+        display: flex;
+		justify-content: flex-end;
+
+        a {
+          text-decoration: none;
+          padding: 15px;
+		  color: black;
+        }
+      }
+    }
+    .personal-info {
+      display: flex;
+      flex-flow: column nowrap;
+      width: 100%;
+      background: @background-medium;
+      padding: 40px 20px;
+
+      .profile-picture {
+        width: 37.5%;
+		margin: @text-margin;
+		}
+      }
+      .name {
+        font-size: 3.5rem;
+        margin: @text-margin;
+      }
+      .tagline {
+        margin: @text-margin;
+        font-size: 1.2rem;
+      }
+      p {
+        margin: @text-margin;
+        margin-top: @text-margin * 3;
+      }
+      button {
+        margin: @text-margin;
+        width: 15%;
+        height: 35px;
+        background: @background-dark;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        margin-bottom: 50px;
+      }
+    }
+    .main-content {
+      display: flex;
+      flex-flow: column;
+      .bottom-content {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        .about-me {
+          display: flex;
+          flex-flow: column nowrap;
+          width: 47.5%;
+          .about-header {
+            .section-headers();
+          }
+        }
+        .skill-section {
+          margin: @text-margin;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: flex-start;
+          align-content: flex-start;
+          width: 50%;
+          .my-skills {
+            .section-headers();
+          }
+          ul {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            height: 100%;
+            border: @border;
+            li {
+              border: @border-bottom;
+              padding: 15px;
+              width: 100%;
+            }
+          }
+        }
+      }
+      .work-history {
+        .history-header {
+          .section-headers();
+        }
+        width: 100%;
+        display: flex;
+        flex-flow: column;
+        justify-content: space-around;
+        .history-table {
+          width: 100%;
+          display: flex;
+          flex-flow: row nowrap;
+		  justify-content: space-around;
+		  margin: 20px 0;
+
+          .table-column {
+			  display: flex;
+			  flex-flow: column wrap;
+			  justify-content: baseline;
+			  align-items: baseline;
+			  width: 100%;
+			  
+            .list-header {
+              font-style: bold;
+            }
+            .list-odd {
+              .table-oddline();
+            }
+            .list-even {
+              .table-evenline();
+            }
+		  }
+		  }
+		}
+		.contact {
+			font-size: 1.5rem;
+			width: 100%;
+			display: flex;
+			flex-flow: column;
+			align-items: center;
+		}
+      }
+    }
+    footer {
+      display: flex;
+      justify-content: center;
+      background: @background-dark;
+      color: white;
+      padding: 20px;
+    }
+  }
+
+
+
